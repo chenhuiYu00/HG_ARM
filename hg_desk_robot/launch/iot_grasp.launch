@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+
+     <!-- 启动相机节点  -->
+    <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+
+
+    <node pkg="hg_desk_robot" name="obj_grasp" type="castlex_arm_control.py" output="screen">
+	<param name="port_name" value="/dev/ttyACM0"/>
+        <remap from="input_rgb_image" to="/usb_cam/image_raw" />
+	<!--方块边长-->
+        <!--param name="side_length" value="34.4"/-->
+    </node>
+
+    <node pkg="hg_desk_robot" name="arm_mqtt" type="castlex_arm_mqtt_ros.py" output="screen">
+    <param name="mqtt_host" value="192.0.20.59"/>
+    <param name="mqtt_prot" value="50000"/>
+    </node>
+
+    <!-- 启动订阅cv_bridge_image话题  -->
+    <!--node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view" args="/usb_cam/image_raw"/-->
+
+
+</launch>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="less_img">
+    <file>less.png</file>
+  </qresource>
+</RCC>

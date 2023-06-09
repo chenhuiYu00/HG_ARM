@@ -1,0 +1,9 @@
+
+
+<launch>
+
+    <node pkg="hg_desk_robot" name="test_key_node" type="key_control.py" output="screen">
+    <param name="port_name" value="ttyACM0"/>
+    </node>
+
+</launch>

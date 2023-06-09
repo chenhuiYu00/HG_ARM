@@ -1,0 +1,9 @@
+
+
+<launch>
+
+    <node pkg="hg_desk_robot" name="test_mpu_node" type="test_mpu.py" output="screen">
+    <param name="port_name" value="/dev/ttyACM0"/>
+    </node>
+
+</launch>

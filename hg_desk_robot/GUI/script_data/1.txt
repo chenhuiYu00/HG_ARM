@@ -1,0 +1,5 @@
+control_light,red
+delay,3
+control_light,blue
+delay,5
+control_light,green

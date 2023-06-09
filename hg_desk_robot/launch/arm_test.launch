@@ -1,0 +1,8 @@
+
+
+<launch>
+     <!-- 启动相机节点  -->    
+    <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+    <node pkg="hg_desk_robot" name="test_arm_node" type="arm_test.py" output="screen">
+    </node>
+</launch>

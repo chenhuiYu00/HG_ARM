@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<launch>
+
+     <!-- 启动相机节点  -->
+    <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+
+
+    <node pkg="object_detect" name="obj_grasp" type="obj_grasp.py" output="screen">
+        <remap from="input_rgb_image" to="/usb_cam/image_raw" />
+	<!--方块边长-->
+        <param name="side_length" value="34.4"/>
+    </node>
+
+    <!-- 启动订阅cv_bridge_image话题  -->
+    <node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view" args="/usb_cam/image_raw"/>
+
+    <!-- 启动抓取例程 -->
+    <node pkg="hg_desk_robot" name="grasp_demo" type="test_grasp.py" output="screen">
+    <param name="port_name" value="/dev/ttyACM0"/>
+    <!--机械臂默认高度-->
+    <param name="suck_z" value="60" />
+    <!--x方向误差-->
+    <param name="CamToSucker" value="4"/>
+    <!--y方向误差-->
+    <param name="CamToSucker_deviation" value="10"/>
+    <!--目标颜色-->
+    <!--
+         0 - 粉红色, 1 - 蓝色, 2 - 绿色, 3 - 黄色, 4 - 紫色, 5 - 橙色, 6 - 红色, 7 - 紫红色
+    -->
+    <param name="object_color" value="5" />
+    <!--放置距离 单位mm-->
+    <param name="drop_off_x" value="-20"/>
+    <param name="drop_off_y" value="-100"/>
+    <param name="drop_off_z" value="80"/>
+    </node>
+
+</launch>

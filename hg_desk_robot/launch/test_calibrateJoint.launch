@@ -1,0 +1,9 @@
+
+
+<launch>
+
+    <node pkg="hg_desk_robot" name="test_calibrateJoint_node" type="calibrateJoint.py" output="screen">
+    <param name="port_name" value="ttyACM0"/>
+    </node>
+
+</launch>

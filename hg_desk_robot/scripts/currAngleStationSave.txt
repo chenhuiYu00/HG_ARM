@@ -1,0 +1,1 @@
+{"currFrontAngle": 41.77035361834556, "currBaseAngle": 18.43494882292201, "currRearAngle": 8.307397574395432, "currY": 60, "currX": 180, "currZ": 130}
